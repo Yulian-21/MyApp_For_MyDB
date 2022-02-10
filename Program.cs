@@ -1,18 +1,35 @@
 ﻿using System;
+using System.Linq;
 using System.Data.SqlClient;
-
+using MyADO.NetApp.DataClasses;
 namespace MyADO.NetApp
 {
     class Program
     {
         static void Main(string[] args)
         {
-          
+            using (var context = new MyContext())
+            {
+
+                var machine = new WorkingMachine()
+                { 
+                    MachineName = "Dell",
+                    ModelName = "Latitude"
+                };
+
+                context.WorkingMachine.Add(machine);
+                context.SaveChanges();
+            }
+
+
+
+            Console.WriteLine("aaaaaaa");
 
         }
     }
 }
-/* public const string ConnectionString = @"Data Source=CODLING;Initial Catalog=ITCompany;Integrated Security=SSPI;";
+
+/*  public const string ConnectionString = @"Data Source=CODLING;Initial Catalog=ITCompany;Integrated Security=SSPI;";
         static void Main(string[] args)
         {
             var queryString = "SELECT * FROM Employees";
@@ -23,11 +40,11 @@ namespace MyADO.NetApp
             SqlCommand command = new(queryString, connStr);
             using (SqlDataReader reader = command.ExecuteReader())
             {
-                
+
                 while (reader.Read())
                 {
-                    Console.WriteLine(reader[7].ToString() +". "+  reader[0].ToString() + "/ " + reader[1].ToString() + "/ " + reader[2].ToString() + "/ " + reader[3].ToString() + "/ " + reader[4].ToString() + "/ " + reader[5].ToString() + "/ " + Convert.ToDateTime(reader[6]).ToString("yyyy/MM/dd"));
-                   
+                    Console.WriteLine(reader[7].ToString() + ". " + reader[0].ToString() + "/ " + reader[1].ToString() + "/ " + reader[2].ToString() + "/ " + reader[3].ToString() + "/ " + reader[4].ToString() + "/ " + reader[5].ToString() + "/ " + Convert.ToDateTime(reader[6]).ToString("yyyy/MM/dd"));
+
                 }
             }
 
@@ -41,7 +58,7 @@ namespace MyADO.NetApp
                 var i = 1;
                 while (reader.Read())
                 {
-                    Console.WriteLine($"{i}. "+ reader[0].ToString() + "/ " + reader[1].ToString());
+                    Console.WriteLine($"{i}. " + reader[0].ToString() + "/ " + reader[1].ToString());
                     i++;
                 }
             }
