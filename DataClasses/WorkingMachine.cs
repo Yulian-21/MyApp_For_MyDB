@@ -12,7 +12,6 @@ namespace MyADO.NetApp
     {
         [Key]
         [Column(TypeName = "int")]
-        [MaxLength(30)]
         public int MachineID { get; set; }
         [Column(TypeName = "nvarchar")]
         [MinLength(3)]

@@ -12,8 +12,7 @@ namespace MyADO.NetApp.DataClasses
     public class CEOs : DbContext
     {
         [Key]
-        [Column(TypeName = "smallint")]
-        [MaxLength(30)]
+        [Column(TypeName = "int")]
         public int CEOID { get; set; }
 
         [Column(TypeName = "nvarchar")]

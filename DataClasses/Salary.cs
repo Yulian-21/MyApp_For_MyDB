@@ -11,7 +11,10 @@ namespace MyADO.NetApp.DataClasses
     public class Salary
     {
         [Key]
+        [Column(TypeName = "int")]
         public int SalaryID { get; set; }
+
+        [Column(TypeName = "money")]
         public int DollarsPerHour { get; set; }
     }
 }

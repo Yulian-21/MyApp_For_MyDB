@@ -12,22 +12,34 @@ namespace MyADO.NetApp
     public class Employee
     {
         [Key]
+        [Column(TypeName = "int")]
         public int EmployeeID { get; set; }
-
+        [Column(TypeName = "nvarchar")]
+        [MinLength(3)]
+        [MaxLength(70)]
         public string EmployeeSurname { get; set; }
+        [Column(TypeName = "nvarchar")]
+        [MinLength(3)]
+        [MaxLength(70)]
         public string EmployeeName { get; set; }
 
         [ForeignKey("Ranks")]
-        public Ranks RanksId { get; set; }
+        [Column(TypeName ="int")]
+        public int RanksId { get; set; }
 
         [ForeignKey("WorkingMachine")]
-        public WorkingMachine WM { get; set; }
+        [Column(TypeName = "int")]
+        public int WorkingMachineId { get; set; }
 
         [ForeignKey("RecruiteOffice")]
-        public RecruiteOffice HiredBy { get; set; }
+        [Column(TypeName = "int")]
+        public int HiredBy { get; set; }
 
         [ForeignKey("ProjectManagers")]
-        public ProjectManagers ReportingTo { get; set; }
+        [Column(TypeName = "int")]
+        public int ReportingTo { get; set; }
+
+        [Column(TypeName = "datetime")]
         public DateTime DateofAdmission { get; set; }
     }
 }
