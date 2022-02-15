@@ -7,12 +7,10 @@ namespace MyADO.NetApp.DataClasses
     {
         public const string ConnectionString = @"Data Source=CODLING;Initial Catalog=ITCompany;Integrated Security=True;TrustServerCertificate=True";//Trusted Connection =True;
 
-
-
         public DbSet<CEOs> CEOs { get; set; }
-        public DbSet<ProjectManagers> PMs { get; set; }
+        public DbSet<ProjectManagers> ProjectManagers { get; set; }
         public DbSet<Ranks> Ranks { get; set; }
-        public DbSet<RecruiteOffice> Recruiters { get; set; }
+        public DbSet<RecruiteOffice> RecruiteOffice { get; set; }
         public DbSet<Salary> Salary { get; set; }
         public DbSet<WorkingMachine> WorkingMachine { get; set; }
         public DbSet<Employee> Employees { get; set; }
@@ -20,6 +18,8 @@ namespace MyADO.NetApp.DataClasses
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(ConnectionString);
+
+            
         }
     }
 }

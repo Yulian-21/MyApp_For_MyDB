@@ -24,5 +24,9 @@ namespace MyADO.NetApp.DataClasses
         [MinLength(3)]
         [MaxLength(80)]
         public string CEOName { get; set; }
+
+
+        public List<ProjectManagers> ProjectManagers { get; set; }
+        public List<RecruiteOffice> Recruiters { get; set; }
     }
 }

@@ -19,8 +19,15 @@ namespace MyADO.NetApp.DataClasses
         [MaxLength(50)]
         public string RankName { get; set; }
 
-        [ForeignKey("Salary")]
         [Column(TypeName = "int")]
-        public Salary SalaryId { get; set; }
+        public int SalaryId { get; set; }
+
+
+        public List<Employee> Employees { get; set; }
+        public List<ProjectManagers> ProjectManagers { get; set; }
+        public List<RecruiteOffice> Recruiters { get; set; }
+
+        [ForeignKey("SalaryId")]
+        public Salary Salary { get; set; }
     }
 }

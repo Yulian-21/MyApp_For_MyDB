@@ -16,5 +16,8 @@ namespace MyADO.NetApp.DataClasses
 
         [Column(TypeName = "money")]
         public int DollarsPerHour { get; set; }
+
+
+        public List<Ranks> Ranks { get; set; } = new List<Ranks>();
     }
 }

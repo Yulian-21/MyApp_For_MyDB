@@ -13,19 +13,33 @@ namespace MyADO.NetApp.DataClasses
         [Key]
         [Column(TypeName = "int")]
         public int PMID { get; set; }
+
         [Column(TypeName ="nvarchar")]
         [MinLength(3)]
         [MaxLength(100)]
         public string PMSurname { get; set; }
+
         [Column(TypeName = "nvarchar")]
         [MinLength(3)]
         [MaxLength(100)]
         public string PMName { get; set; }
+
         [Column(TypeName ="int")]
-        [ForeignKey("CEOs")]
-        public CEOs ReportingToCEO { get; set; }
+        public int ReportingToCEO { get; set; }
+
         [Column(TypeName = "int")]
-        [ForeignKey("Ranks")]
-        public Ranks RankId { get; set; }
+        public int RankId { get; set; }
+
+
+
+
+        public List<Employee> Employees { get; set; }
+        public List<RecruiteOffice> Recruiters { get; set; } = new List<RecruiteOffice>();
+
+        [ForeignKey("ReportingToCEO")]
+        public CEOs CEOs { get; set; }
+
+        [ForeignKey("RankId")]
+        public Ranks Rank { get; set; }
     }
 }

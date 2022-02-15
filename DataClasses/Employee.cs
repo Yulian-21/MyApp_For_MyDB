@@ -14,32 +14,48 @@ namespace MyADO.NetApp
         [Key]
         [Column(TypeName = "int")]
         public int EmployeeID { get; set; }
+
         [Column(TypeName = "nvarchar")]
         [MinLength(3)]
         [MaxLength(70)]
         public string EmployeeSurname { get; set; }
+
         [Column(TypeName = "nvarchar")]
         [MinLength(3)]
         [MaxLength(70)]
         public string EmployeeName { get; set; }
 
-        [ForeignKey("Ranks")]
+        //[ForeignKey("Ranks")]
         [Column(TypeName ="int")]
         public int RanksId { get; set; }
 
-        [ForeignKey("WorkingMachine")]
+        //[ForeignKey("WorkingMachine")]
         [Column(TypeName = "int")]
         public int WorkingMachineId { get; set; }
 
-        [ForeignKey("RecruiteOffice")]
+        //[ForeignKey("RecruiteOffice")]
         [Column(TypeName = "int")]
         public int HiredBy { get; set; }
 
-        [ForeignKey("ProjectManagers")]
+        //[ForeignKey("ProjectManagers")]
         [Column(TypeName = "int")]
         public int ReportingTo { get; set; }
 
         [Column(TypeName = "datetime")]
         public DateTime DateofAdmission { get; set; }
+
+        
+        [ForeignKey("RanksId")]
+        public Ranks Ranks { get; set; }
+
+        [ForeignKey("WorkingMachineId")]
+        public WorkingMachine WorkingMachine { get; set; }
+
+        [ForeignKey("HiredBy")]
+        public RecruiteOffice RecruiteOffice { get; set; }
+
+        [ForeignKey("ReportingTo")]
+        public ProjectManagers ProjectManagers { get; set; }
+
     }
 }

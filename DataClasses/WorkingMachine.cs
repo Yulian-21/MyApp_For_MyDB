@@ -13,13 +13,19 @@ namespace MyADO.NetApp
         [Key]
         [Column(TypeName = "int")]
         public int MachineID { get; set; }
+
         [Column(TypeName = "nvarchar")]
         [MinLength(3)]
         [MaxLength(200)]
         public string MachineName { get; set; }
+
         [Column(TypeName = "nvarchar")]
         [MinLength(3)]
         [MaxLength(200)]
         public string ModelName { get; set; }
+
+
+
+        public List<Employee> Employees { get; set; }
     }
 }
